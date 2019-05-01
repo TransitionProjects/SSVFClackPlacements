@@ -1,4 +1,6 @@
 """
+Create a report showing placements by SSVF into Clackamas County locations.
+
 This script is for automating the processing of the data for the SSVF teams
 regular reports to Clackamas County showing the number of vets placed into
 said county.
@@ -15,8 +17,7 @@ from tkinter.filedialog import asksaveasfilename
 class CreatePlacementReport:
     def __init__(self):
         """
-        Initialize the class creating two data frames from the initial raw
-        report
+        Initialize the class creating two data frames from the raw report.
         """
         self.raw_report = askopenfilename(
             title="Open the Placement Report v.5c + CoC Location",
@@ -34,6 +35,8 @@ class CreatePlacementReport:
 
     def process_dataframes(self):
         """
+        Create the two processed dataframes.
+
         Merge the self.entries and self.placements datrames on the client uid
         columns.  Then slice the resulting dataframe so that only participants
         who's Client Location(7690) value contains OR-507.  Remove any rows
